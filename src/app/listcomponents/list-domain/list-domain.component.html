@@ -1,0 +1,15 @@
+<div class="container">
+    <div style="margin-top: 0px;"> 
+      <table  *ngIf="listDomaine">
+          <tr>                
+              <th>Liste domain</th>
+              <button class="btn btn-primary" type ="submit" (click)="oncreate()"> +create </button>
+          </tr>
+          <tr *ngFor="let d of listDomaine._embedded.domaines">
+              <td  class="list-group-item">{{d.nom}}</td>
+              <td><a class="btn btn-sm btn-danger text-white" (click)="deletDomainName(d.id)">delet</a></td>
+
+          </tr>
+      </table>
+    </div>
+</div>

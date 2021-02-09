@@ -1,0 +1,21 @@
+
+<div class="container">
+    <div style="margin-top: 0px;"> 
+      <table  *ngIf="listCompetence">
+          <tr>                
+              <th>Liste Competences</th>
+              <button class="btn btn-primary" type ="submit" (click)="oncreate()"> +create </button>
+          </tr>
+          <tr *ngFor="let c of listCompetence._embedded.competences">
+              <td style="width: 300px;"  class="list-group-item">{{c.nom}}</td>
+              <td><a class="btn btn-sm btn-danger text-white" (click)="deletCompetence(c.id)">delet</a></td>
+          </tr>
+      </table>
+      <ul class="pagination">
+        <li *ngFor="let p of pages; let i=index" class="page-item">
+            <a class="page-link" href="#"  (click)="goTo(i, $event)">{{i}}</a>
+        </li>
+    </ul> 
+
+    </div>
+</div>

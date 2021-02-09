@@ -1,0 +1,19 @@
+<div class="container" style="margin-top: 0px;">
+      <table *ngIf="listCatgen">
+          <tr>                
+              <th style="color: crimson;">Liste Categorie Generique</th>
+              <button class="btn btn-primary" type ="submit" (click)="oncreate()"> +create </button>
+          </tr>
+          <tr *ngFor="let c of listCatgen._embedded.categorieGeneriques">
+              <td  class="list-group-item" style="width: 300px;">{{c.nom}}</td>
+              <td><a class="btn btn-sm btn-danger text-white" (click)="deletCatGen(c.id)"><i class="fa fa-trash"></i></a></td>              
+          </tr>
+      </table>
+      <ul class="pagination">
+        <li *ngFor="let p of pages; let i=index" class="page-item">
+            <a class="page-link" href="#"  (click)="goTo(i, $event)">{{i}}</a>
+        </li>
+    </ul>
+
+</div>
+

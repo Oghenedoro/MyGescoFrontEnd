@@ -1,0 +1,11 @@
+<div class="container">
+    <div style="margin-top: 0px;"> 
+      <h2 style="color: crimson;">List roles</h2>  
+      <table  *ngIf="listRole">       
+          <tr *ngFor="let r of listRole._embedded.roles">
+              <td  class="list-group-item">{{r.nom}}</td>              
+          </tr>
+      </table>
+    </div>
+</div>
+

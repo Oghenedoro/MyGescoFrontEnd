@@ -1,0 +1,43 @@
+<div class="container">
+  <h3>Gestion du Poste</h3>
+    <form #posteForm="ngForm">
+
+      <div class="form-group">
+        <label style="color: crimson; font-size: x-large;">Poste</label>
+          <select *ngIf="listPost" name="idPost"  #idPost="ngModel" [(ngModel)]="poste.id" class="form-control" style="width: 200px;" >
+            <option *ngFor="let p of listPost._embedded.postes"  value="{{p.id}}"> {{p.nom}}</option>
+          </select>     
+      </div>
+
+      <div class="form-group">
+        <label style="color: crimson; font-size: x-large;">Domain</label>
+          <select *ngIf="listDomain" name="idDomaine"  #idDomaine="ngModel" [(ngModel)]="domaine.id" class="form-control" style="width: 200px;">
+            <option *ngFor="let d of listDomain._embedded.domaines"  value="{{d.id}}"> {{d.nom}}</option>
+          </select>     
+      </div>
+
+      <div class="form-group">
+        <label style="color: crimson; font-size: x-large;">Role</label>
+        <select *ngIf="listRoles" name="idRole"  #idRole="ngModel" [(ngModel)]="role.id" class="form-control" style="width: 200px;">
+          <option *ngFor="let r of listRoles._embedded.roles"  value="{{r.id}}"> {{r.nom}}</option>
+        </select>     
+    </div>
+    
+    <div class="form-group">
+      <label style="color: crimson; font-size: x-large;">Operateur</label>
+      <select *ngIf="listOperateur" name="idOperateur"  #idOperateur="ngModel" [(ngModel)]="operateur.id" class="form-control" style="width: 200px;">
+        <option *ngFor="let p of listOperateur._embedded.operateurs"  value="{{p.id}}"> {{p.nom}}</option>
+      </select> 
+      <ul class="pagination">
+        <li *ngFor="let p of pages; let i=index" class="page-item">
+            <a class="page-link" href="#"  (click)="goTo(i, $event)">{{i}}</a>
+        </li>
+      </ul>    
+   </div>
+
+     <div class="form-group">
+       <button [disabled]="posteForm.invalid" (click)="creatGestionPost()" type="submit" class="btn btn-dark"><i class="fa fa-database">Submit</i></button>
+       <button type="submit" class="btn btn-outline-dark m1-1" [mat-dialog-close]><i class="fa fa-database">Close</i></button>
+     </div>
+    </form> 
+ </div>

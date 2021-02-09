@@ -1,0 +1,56 @@
+<div class="container">
+<h3 style="color: royalblue;">Création Opérateur</h3>
+  <form #posteForm="ngForm">
+    <div class="row">
+
+        <div class="col-m-1">
+         <div class="form-group">
+            <label>Prénom</label>
+            <input class="form-control" style="width: 200px;" type="text" #prenom="ngModel" required [class.is-invalid]="prenom.invalid && prenom.touched" name="prenom" [(ngModel)]="operateur.prenom">
+         </div>
+        </div>
+
+    <div class="col-m-1">
+        <div class="form-group">
+            <label style="margin-left: 10px;">Nom</label>
+            <input class="form-control" style="width: 200px; margin-left: 10px;" type="text" #nom="ngModel" required [class.is-invalid]="nom.invalid && nom.touched" name="nom" [(ngModel)]="operateur.nom">
+        </div> 
+    </div>
+
+    <div class="col-m-1">
+        <div class="form-group">
+           <label>NNI</label>
+           <input class="form-control" style="width: 200px;" type="text" #nni="ngModel" required [class.is-invalid]="nni.invalid && nni.touched" name="nni" [(ngModel)]="operateur.nni">
+        </div>
+       </div>
+
+   <div class="col-m-1">
+       <div class="form-group">
+           <label style="margin-left: 10px;">ErdfSCAF</label>
+           <input class="form-control" style="width: 200px; margin-left: 10px;" type="text" #erdfscaf="ngModel" required [class.is-invalid]="erdfscaf.invalid && erdfscaf.touched" name="erdfscaf" [(ngModel)]="operateur.erdfscaf">
+       </div> 
+   </div>
+
+   <div class="col-m-1">
+    <div class="form-group">
+       <label>Lieu</label>
+       <input class="form-control" style="width: 200px;" type="text" #lieu="ngModel" required [class.is-invalid]="lieu.invalid && lieu.touched" name="lieu" [(ngModel)]="operateur.lieu">
+    </div>
+   </div>
+   
+   <div class="col-m-2">
+   <div class="form-group">
+    <button [disabled]="posteForm.invalid" style="margin-left: 10px; margin-top: 30px;" (click)="onCreate()" type="submit" class="btn btn-dark"><i class="fa fa-database">Submit</i></button>
+    <button style="margin-left: 10px; margin-top: 30px;" type="submit" class="btn btn-outline-dark m1-1" [mat-dialog-close]><i class="fa fa-database">Close</i></button>
+ </div>
+</div>
+
+
+
+  <div>
+   
+ </div>
+</div>
+</form> 
+</div>
+

@@ -1,0 +1,17 @@
+<div class="container">
+    <form #domainForm="ngForm">
+        <fieldset>
+          <legend>Créer un domain:</legend>
+          <div class="form-group">
+          <label for="fname">Nom Domain:</label><br>
+          <input type="text" #nom="ngModel" required [class.is-invalid]="nom.invalid && nom.touched" name="nom" [(ngModel)]="domain.nom"> 
+          <small class="text-danger" [class.d-none]="nom.valid || nom.untouched">Domain name is required !</small> 
+        </div>
+        <div class="form-group">
+          <button [disabled]="domainForm.invalid" type="submit" class="btn btn-primary" (click)="createDomain()"> submit </button>
+          <button type="button" class="btn btn-danger m1-1" [mat-dialog-close]> Close </button>
+        </div>
+        </fieldset>
+            
+      </form> 
+    </div>

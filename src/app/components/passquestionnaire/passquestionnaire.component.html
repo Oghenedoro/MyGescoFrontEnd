@@ -1,0 +1,15 @@
+<div class="col-md-4" >
+    <div class="card" style="width: 280px; margin-left: 380px;">    
+      <table class="table">
+        <thead>
+          <tr>
+            <th style="color: red;">Questionnaires</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="listQuestions">
+          <tr *ngFor="let q of listQuestions._embedded.questions" style="font-size: small;">                  
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

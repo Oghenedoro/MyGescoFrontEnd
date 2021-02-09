@@ -1,0 +1,15 @@
+<div class="container">
+    <form #catForm="ngForm">
+        <fieldset>
+          <legend>Créer une Categorie Metier:</legend>
+          <div class="form-group">
+          <label for="fname">Nom Catégorie:</label><br>
+          <input type="text" #nom="ngModel" required [class.is-invalid]="nom.invalid && nom.touched" name="nom" [(ngModel)]="catMetier.nom"> 
+          <small class="text-danger" [class.d-none]="nom.valid || nom.untouched">Category name is required !</small> 
+        </div>
+          <button [disabled]="catForm.invalid" type="submit" class="btn btn-primary" (click)="createCatMetier()"><i class="fa fa-database"></i> submit </button>
+          <button type="button" class="btn btn-danger m1-1" [mat-dialog-close] ><i class="fa fa-close"></i> Close </button>
+        </fieldset>
+            
+      </form> 
+    </div>

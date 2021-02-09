@@ -1,0 +1,24 @@
+<div class="container">
+    <form #catForm="ngForm">
+        <fieldset>
+          <legend>Créer une Categorie Générique:</legend>
+          <div class="form-group">
+          <label style="color: crimson; font-size: x-large;" for="fname">Nom Catégorie:</label><br>
+          <input type="text" #nom="ngModel" required [class.is-invalid]="nom.invalid && nom.touched" name="nom" [(ngModel)]="catGen.nom"> 
+          <small class="text-danger" [class.d-none]="nom.valid || nom.untouched">Category name is required !</small> 
+        </div>
+
+        <div>
+          <label style="color: crimson; font-size: x-large;">Poste</label>
+          <select *ngIf="listPost" name="postId"  #postId="ngModel" [(ngModel)]="poste.id" class="form-control" style="width: 180px;" required [class.is-invalid]="nom.invalid && nom.touched">
+            <option *ngFor="let p of listPost._embedded.postes"  value="{{p.id}}"> {{p.nom}}</option>
+          </select> 
+        </div>
+        <div style="margin-top: 10px;">
+          <button [disabled]="catForm.invalid" type="submit" class="btn btn-primary" (click)="createCatGenerique()"><i class="fa fa-database"></i> submit </button>
+          <button type="button" class="btn btn-danger m1-1" [mat-dialog-close] ><i class="fa fa-close"></i> Close </button>
+        </div>
+         </fieldset>
+            
+      </form> 
+    </div>

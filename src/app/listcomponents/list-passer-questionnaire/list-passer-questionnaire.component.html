@@ -1,0 +1,99 @@
+<div class="container" style="margin-top: 0px;">
+ 
+  <div class="row">
+    <div class="col-md-3">    
+      <div class="card" style="width: 100px; margin-left: 0px; margin-top: 40px;">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th style="color: red;">Poste</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="listPost">
+            <tr style="font-size: small;" *ngFor="let p of listPost._embedded.postes" class="clickable">        
+                <a (click)="[getCatGen(p),getIdPostByClick(p)]" class="clickable" >{{p.nom}}</a>                                        
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>  
+
+    <div class="col-md-3">    
+      <div class="card" style="width: 250px; margin-left: 0px; margin-top: 40px;">
+        <table class="table table-striped" *ngIf="mod==1">
+          <thead>
+            <tr>
+              <th style="color: red;">Catégories</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="listCatgen">
+            <tr style="font-size: small;" *ngFor="let c of listCatgen._embedded.categorieGeneriques" class="clickable">        
+                <a (click)="[getCompetences(c),getIdCatByClick(c)]" class="clickable">{{c.nom}}</a>                                        
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>  
+   
+  
+<div class="col-md-3" >
+  <div class="card" style="width: 300px; margin-left: 145px; margin-top: 40px;">
+    <table class="table table-striped" *ngIf="listCompetence">
+      <thead>
+        <tr>
+          <th style="color: red;">Compétences</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="listCompetence">
+        <tr class="clickable" *ngFor="let com of listCompetence._embedded.competences" style="font-size: small;">        
+            <a (click)="[getQuestions(com),getIdCompByClick(com)]">{{com.nom}}</a>                                        
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+ <div class="col-md-3" *ngIf="mode==2">
+  <div class="card" style="width: 500px; margin-left: 340px;  margin-top: 40px;">    
+    
+    <table class="table">
+      <thead style="color: red;">
+        <tr>
+          <th>Questionnaires</th> <th>Réponse</th>
+        </tr>
+      </thead>
+      <tbody>  
+           
+        <div class="row">   
+        <div class="col-md-2">
+           <div *ngIf="listQuestions"> 
+            <div name="idQuestion"  style="width: 350px;"  #idQuestion="ngModel" [(ngModel)]="question.id">
+              <div (click)="getIdQuestByClick(q)" *ngFor="let q of listQuestions._embedded.questions; let i = index" style="font-size: small;" class="clickable" >
+                {{q.intitule}}
+                <form >
+                  <select style="margin-left: 400px; margin-top: 0px;" name="intitule" #intitule="ngModel" [ngModel]="reponse.intitule">
+                    <option *ngFor="let r of reponses; let i=index" [ngValue]="r.id" >{{r.intitule}}</option>
+                 </select>
+              </form>
+               
+              </div>
+            </div>
+          </div>   
+      </div>  
+
+      
+      </div>  
+       
+      </tbody>      
+        <button style="margin-left: 10px;" (click)="creatReponse()" type="submit" class="btn btn-primary"><i class="fa fa-database">Submit</i></button>
+        <button type="button" class="btn btn-outline-dark m1-1"><i class="fa fa-database" (click)="quitterQuestionnaire()">Quitter</i></button>
+      </table>       
+  </div>
+</div>
+
+
+</div>
+</div>
+
+

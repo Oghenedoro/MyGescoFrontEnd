@@ -1,0 +1,22 @@
+<div class="container">
+    <div style="margin-top: 0px;"> 
+      <table *ngIf="listCatMet">
+          <tr>                
+              <th>Liste Categorie Metier</th>
+              <button class="btn btn-primary" type ="submit" (click)="oncreate()"> +create </button>
+          </tr>
+          <tr *ngFor="let cm of listCatMet._embedded.categorieMetiers">
+              <td  class="list-group-item">{{cm.nom}}</td>
+              <td><a class="btn btn-sm btn-danger text-white" (click)="deletCatMetier(cm.id)">delet</a></td>              
+          </tr>
+      </table>
+
+      <ul class="pagination">
+        <li *ngFor="let p of pages; let i=index" class="page-item">
+            <a class="page-link" href="#"  (click)="goTo(i, $event)">{{i}}</a>
+        </li>
+    </ul>
+
+    </div>
+</div>
+
